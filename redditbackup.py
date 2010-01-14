@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 """
 Reddit backup!
-Version: 10.01.11
+Version: 10.01.xx
 """
 import codecs
-import re
+import getpass
+#import re
 import time
 import urllib
 import urllib2
@@ -33,7 +34,7 @@ if __name__ == "__main__":
 
     while not HASBACON:
         username = raw_input("Username: ")
-        password = raw_input("Password: ")
+        password = getpass.getpass("Password: ")
         if "WRONG_PASSWORD" in urlopen("https://www.reddit.com/api/login/", {"passwd": password, "user": username}).read():
             print "Wrong username or password, please try again."
         else:
