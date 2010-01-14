@@ -55,9 +55,9 @@ if __name__ == "__main__":
         xml = None
         count = 0
         while not after is None:
-            c = json.loads(urlopen("http://www.reddit.com/user/%s/%s/.json?after=%s" % (urllib.quote(username), section, after)).read())
+            c = json.loads(urlopen("http://www.reddit.com/user/%s/%s/.json?limit=100&after=%s" % (urllib.quote(username), section, after)).read())
             if format == "xml":
-                x = minidom.parseString(urlopen("http://www.reddit.com/user/%s/%s/.xml?after=%s" % (urllib.quote(username), section, after)).read())
+                x = minidom.parseString(urlopen("http://www.reddit.com/user/%s/%s/.xml?limit=100&after=%s" % (urllib.quote(username), section, after)).read())
                 if not xml:
                     xml = x
                 else:
